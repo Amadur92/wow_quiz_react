@@ -14,19 +14,7 @@
 
 
 
-.header {
-  grid-area: h;
-  height: 2fr;
-  background-color: #6d89ea;
-}
 
-.header img {
-  height: 50px;
-}
-.sidebar {
-  grid-area: n;
-}
-.content {
-  grid-area: c;
-  background-color: #c69292;
-}
+
+
+

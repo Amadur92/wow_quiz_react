@@ -1,0 +1,9 @@
+.header {
+    grid-area: h;
+    height: 2fr;
+    background-color: #6d89ea;
+  }
+
+  .header img {
+    height: 50px;
+  }
