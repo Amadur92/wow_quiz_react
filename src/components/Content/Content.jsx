@@ -1,11 +1,11 @@
 import React from "react"
-import s from "./Content.module.css"
+
 import Post from "./Post.jsx"
 
 
 const Content = () => {
 
-    return (<div className={s.content}>
+    return (<div>
         <img src='https://wowquiz.ru/images/obl.jpeg' alt='logo' />
         Hello asshole
         bla bla

@@ -4,13 +4,13 @@ import s from "./Navbar.module.css"
 const Navbar = () => {
     return (<nav className={s.sidebar}>
         <div>
-            <ul>Games</ul>
+            <a href="/content">Games</a>
         </div>
         <div>
-            <ul>Messages</ul>
+            <a href="/dialogs">Messages</a>
         </div>
         <div>
-            <ul>three</ul>
+        <a href="/dialogs">third</a>
         </div>
     </nav>)
 
