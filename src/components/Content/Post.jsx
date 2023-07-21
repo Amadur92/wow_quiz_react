@@ -1,10 +1,10 @@
 import React from "react"
-import "./Post.module.css"
+import s from "./Post.module.css"
 
 const Post = (props) => {
-    return (<div>
+    return (<div className={s.post}>
         <img src='https://yt3.ggpht.com/ytc/AOPolaTgpi3z3jrCrQQdVZezCFIKwzkPrL7_jagDtsvLEA=s48-c-k-c0x00ffffff-no-rj' alt='logo'/>
-        {props.name}
+        <h>{props.name}</h>
         <div>
         <span>Like </span>{props.likes}
         </div>
