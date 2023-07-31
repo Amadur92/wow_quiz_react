@@ -4,9 +4,13 @@ import Header from './components/Header/Header.jsx';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Content from './components/Content/Content.jsx';
 import Dialog from './components/Dialogs/Dialogs.jsx';
-import {BrowserRouter, Route, Routes} from 'react-router-dom'
 
-const App = () =>  {
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+//import { addGame } from './redux/state';
+
+
+const App = (props) =>  {
+  
   return (
     <BrowserRouter>
    <div className='app-wrapper'> 
@@ -15,10 +19,10 @@ const App = () =>  {
     
     <div className='app-wrapper-content'>
     <Routes>
-      <Route path="/content" element={<Content />}/> 
-      <Route path="/dialogs" element={<Dialog />}/> 
-      <Route path="/third" element={<third />}/> 
-      
+      <Route path="/content" element={<Content posts={props.state.posts} addGame={props.addGame}/>} /> 
+      <Route path="/dialogs" element={<Dialog dialogs_data={props.state.dialogs_data} />}/> 
+
+
     </Routes> 
    </div>
 

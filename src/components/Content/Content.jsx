@@ -1,20 +1,24 @@
 import React from "react"
+import Post from "./Post/Post.jsx"
 
-import Post from "./Post.jsx"
 
-
-const Content = () => {
-    let posts = [
-        {name:"game 1", likes:'15'},
-        {name:"game 2", likes:'5'},
-        {name:"game 3", likes:'125'},
-        {name:"game 4", likes:'1125'},
-    ]
-    let all_posts = posts.map(
+const Content = (props) => {
+    console.log(props)
+    let newPostElement = React.createRef()
+    let newGameAdd = () => {
+        let text = newPostElement.current.value;
+        props.addGame(text)
+        newPostElement.current.value =''
+    }
+    let all_posts = props.posts.map(
         post => <Post name={post.name} likes={post.likes}/>
     )
     return (<div>
         <img src='https://wowquiz.ru/images/obl.jpeg' alt='logo' />
+        <div>
+            <textarea ref= {newPostElement}></textarea>
+        </div>
+        <button onClick={newGameAdd}>add game</button>
         Hello asshole
         bla bla
         {all_posts}
