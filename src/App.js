@@ -19,7 +19,11 @@ const App = (props) =>  {
     
     <div className='app-wrapper-content'>
     <Routes>
-      <Route path="/content" element={<Content posts={props.state.posts} addGame={props.addGame}/>} /> 
+      <Route path="/content" 
+      element={<Content posts={props.state.posts} 
+      defaultTextArea ={props.state.defaultTextArea}
+      addGame={props.addGame} 
+      updatePostText={props.updatePostText}/>} /> 
       <Route path="/dialogs" element={<Dialog dialogs_data={props.state.dialogs_data} />}/> 
 
 

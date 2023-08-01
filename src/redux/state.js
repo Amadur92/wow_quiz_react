@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render"
+let rerenderEntireTree = () => {}
 
 let state ={
  dialogs_data : [
@@ -16,19 +16,27 @@ let state ={
     {id: '2',name:"game 2", likes:'5'},
     {id: '3',name:"game 3", likes:'125'},
     {id: '4',name:"game 4", likes:'1125'},
-  ]}
+  ],
+defaultTextArea : "blablaBla"}
 
 
-export let addGame = (gameMessage) => {
+export let addGame = () => {
     let newGame = {
         id: "5",
-        name: gameMessage,
+        name: state.defaultTextArea,
         likes: '0',
     }
     state.posts.push(newGame)
     rerenderEntireTree(state)
-    
-    
+}
+
+export let updatePostText = (text) => {
+  state.defaultTextArea = text
+  rerenderEntireTree(state)
+}
+
+export const rerender = (observer) => { //pattern observer
+  rerenderEntireTree = observer
 }
 
 export default state

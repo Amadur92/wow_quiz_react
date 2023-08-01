@@ -1,24 +1,29 @@
 import React from "react"
 import Post from "./Post/Post.jsx"
+import s from "./Content.module.css"
 
 
 const Content = (props) => {
     console.log(props)
     let newPostElement = React.createRef()
     let newGameAdd = () => {
-        let text = newPostElement.current.value;
-        props.addGame(text)
+        props.addGame()
         newPostElement.current.value =''
     }
     let all_posts = props.posts.map(
         post => <Post name={post.name} likes={post.likes}/>
     )
-    return (<div>
+    let updatePostText = () => {
+        let text = newPostElement.current.value;
+        props.updatePostText(text)
+    }
+
+    return (<div >
         <img src='https://wowquiz.ru/images/obl.jpeg' alt='logo' />
-        <div>
-            <textarea ref= {newPostElement}></textarea>
+        <div className={s.textarea}>
+            <textarea onChange={updatePostText} ref= {newPostElement} defaultValue={props.defaultTextArea}/>
         </div>
-        <button onClick={newGameAdd}>add game</button>
+        <button  onClick={newGameAdd}>add game</button>
         Hello asshole
         bla bla
         {all_posts}
