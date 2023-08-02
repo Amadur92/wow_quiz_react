@@ -1,20 +1,27 @@
+.AllDialogs {
+    grid-template-areas: "n messages";
+    grid-template-columns: 20px 1fr;
+
+}
+
 .dialog {
+    grid-area: n;
     background-color: bisque;
     display: grid;
     grid-template-areas: 
-    "avatar name"
-    "e text";
-    grid-template-columns: 1fr 10fr;
-    grid-template-rows: 20px 1fr;
+    "avatar name messages"
+    "e text e1";
+    grid-template-columns: 60px 1fr 3fr;
+    grid-template-rows: 20px;
 }
 
 .dialog img {
-    grid-area: 'avatar';
+    grid-area: avatar;
     height: 50px;
 }
 
 .author {
-    grid-area: 'name';
+    grid-area: name;
     font-size: 25px;
 }
 

@@ -6,7 +6,7 @@ const Navbar = () => {
     let elements = [
         {link:"/content", link_text:"Games"},
         {link:"/dialogs", link_text:"Messages"},
-        {link:"/dialogs", link_text:"third"},
+        {link:"/new-table", link_text:"New Table"},
 ]
     let navbar = elements.map(
         element => {

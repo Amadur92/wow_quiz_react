@@ -1,13 +1,18 @@
 import React from "react"
 import Post from "./Post/Post.jsx"
 import s from "./Content.module.css"
+import { addPostActionCreator, updatePostTextActionCreator } from "../../redux/state.js"
+
+
+
 
 
 const Content = (props) => {
     console.log(props)
+
     let newPostElement = React.createRef()
     let newGameAdd = () => {
-        props.addGame()
+        props.dispatch(addPostActionCreator())
         newPostElement.current.value =''
     }
     let all_posts = props.posts.map(
@@ -15,7 +20,7 @@ const Content = (props) => {
     )
     let updatePostText = () => {
         let text = newPostElement.current.value;
-        props.updatePostText(text)
+        props.dispatch(updatePostTextActionCreator(text))
     }
 
     return (<div >
