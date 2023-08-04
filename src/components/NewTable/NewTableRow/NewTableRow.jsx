@@ -1,22 +1,21 @@
 import s from './NewTableRow.module.css'
 
-let newTableRow = (roundCount) => {
-let rounds = () => {
-    let content = []
-    for (let i = 0; i < roundCount; i++) {
-        content.push(<th ><input defaultValue='0' className={s.roundinput}></input></th>)
-    }
-    return content
-}
+let NewTableRow = (props) => {
+
+    console.log(typeof(result))
+    let resultRow = props.result.map(points => (<th ><input defaultValue='0' className={s.roundinput}>{points.value}</input></th>))
+    
+
     return (
+        <div>
 <tr>
 <th>
     <input/>
 </th>
-{rounds()}
+{resultRow}
 <th></th>
-</tr>
+</tr></div>
     )
 }
 
-export default newTableRow
+export default NewTableRow

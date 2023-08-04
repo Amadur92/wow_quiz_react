@@ -1,13 +1,13 @@
 import React from "react"
 import s from "./Dialogs.module.css"
 import DialogItem from "./DialogItem/DialogItem"
-import { updateMessageTextActionCreator, sendMessageActionCreator} from "../../redux/state"
+import { updateMessageTextActionCreator, sendMessageActionCreator} from "../../redux/DialogsPageReducer.js"
 
 
 const AllDialogs = (props) => {
     
     let newMessageElement = React.createRef()
-    let data = props.dialogs_data.map(dialog => 
+    let data = props.dialogs_data.dialogs.map(dialog => 
     <DialogItem
     id={dialog.id} 
     author_name={dialog.author_name} 

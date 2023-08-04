@@ -21,12 +21,12 @@ const App = (props) =>  {
     <div className='app-wrapper-content'>
     <Routes>
       <Route path="/content" 
-      element={<Content posts={props.state.posts} 
-      defaultTextArea ={props.state.defaultTextArea}
+      element={<Content posts={props.state.contentReducer.posts} 
+      defaultTextArea ={props.state.contentReducer.defaultTextArea}
       dispatch = {props.dispatch}/>} /> 
-      <Route path="/dialogs" element={<Dialog dialogs_data={props.state.dialogs_data}
+      <Route path="/dialogs" element={<Dialog dialogs_data={props.state.dialogsReducer}
       dispatch = {props.dispatch} />}/> 
-      <Route path="/new-table" element={<NewTable table_data={props.state.table_data}
+      <Route path="/new-table" element={<NewTable table_data={props.state.tableReducer}
       dispatch = {props.dispatch} />}/> 
 
     </Routes> 
