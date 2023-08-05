@@ -1,36 +1,31 @@
 import React from "react"
 import s from "./Dialogs.module.css"
-import DialogItem from "./DialogItem/DialogItem"
-import { updateMessageTextActionCreator, sendMessageActionCreator} from "../../redux/DialogsPageReducer.js"
 
 
-const AllDialogs = (props) => {
-    
+const Dialogs = (props) => {
+
     let newMessageElement = React.createRef()
-    let data = props.dialogs_data.dialogs.map(dialog => 
-    <DialogItem
-    id={dialog.id} 
-    author_name={dialog.author_name} 
-    message_text={dialog.message_text}/>)
-        let updateMessageText = () => {
-            let text = newMessageElement.current.value;
-            props.dispatch(updateMessageTextActionCreator(text))
-        }
-let sendMessage = () => {
-    props.dispatch(sendMessageActionCreator())
-}
-    return (
-        
-        <div className={s.AllDialogs}>
-        <div className={s.dialogs}>
 
-        <a>{data}</a>
-          </div>
-          <div className={s.textarea}>
-          <textarea onChange={updateMessageText} ref= {newMessageElement} defaultValue={props.defaultMessageArea}/>
-          <button text='send message' onClick={sendMessage}/>
-          </div>
-       </div>
+    let updateMessageText = () => {
+        let text = newMessageElement.current.value;
+        props.updateMessageText(text)
+    }
+    let sendMessage = () => {
+        props.sendMessage()
+    }
+    return (
+
+        <div className={s.AllDialogs}>
+            <div className={s.dialogs}>
+
+                <a>{props.data}</a>
+            </div>
+            <div className={s.textarea}>
+                <textarea onChange={updateMessageText} ref={newMessageElement} defaultValue={props.defaultMessageArea} />
+                
+                <button className={s.sendmessage} text='send message' onClick={sendMessage}>SendMessage</button>
+            </div>
+        </div>
     )
 }
 
@@ -38,10 +33,10 @@ let sendMessage = () => {
 
 const DialogFullView = (props) => {
     return (
-        <div className={s.dialog+ " "+ s.active_dialog}>
+        <div className={s.dialog + " " + s.active_dialog}>
 
         </div>
     )
 }
 
-export default AllDialogs
+export default Dialogs

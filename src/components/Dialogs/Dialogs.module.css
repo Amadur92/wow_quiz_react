@@ -32,3 +32,9 @@
     color: chocolate;
 }
 
+.sendmessage {
+    height: 20px;
+    width: 200px;
+    padding-top: 5%;
+    text-shadow: 1ch;
+}
